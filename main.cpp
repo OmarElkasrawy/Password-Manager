@@ -1,4 +1,6 @@
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -29,7 +31,7 @@ public:
         // this is range-based for loop
         for (auto & i : table)
             i = nullptr;
-
+            loadUsersFromFile(); // it loads users from users.txt when hashtable created
     }
 
     // Hash function
@@ -48,6 +50,27 @@ public:
         newNode->user = user;
         newNode->next = table[index];
         table[index] = newNode;
+    }
+
+    void loadUsersFromFile() {
+        ifstream infile("users.txt");
+        if(infile.is_open()) {
+            string line;
+            while (getline(infile, line)) {
+                stringstream ss(line);
+                string uname, password;
+                getline(ss, uname, ',');
+                getline(ss, password);
+                User user = {
+                        uname,
+                        password
+                };
+                addUser(user);
+            }
+            infile.close();
+        } else {
+            cerr << "Unable to open file to read" << endl; // out unbuffered to display errors
+        }
     }
 };
 
