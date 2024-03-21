@@ -1,0 +1,3 @@
+D:/TKH COV/Ethical Hacking & Cybersecurity/Programming 2/programming_2_coursework_one/cmake-build-debug/CMakeFiles/programming_2_coursework_one.dir
+D:/TKH COV/Ethical Hacking & Cybersecurity/Programming 2/programming_2_coursework_one/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/TKH COV/Ethical Hacking & Cybersecurity/Programming 2/programming_2_coursework_one/cmake-build-debug/CMakeFiles/rebuild_cache.dir
