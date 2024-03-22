@@ -198,6 +198,28 @@ int main() {
             } else {
                 cout << "Unauthorized access! \n";
             }
+        } else if (choice == "create") {
+            string username, password;
+            cout << "Enter your username: ";
+            cin >> username;
+            cout << "Enter your password: ";
+            cin >> password;
+
+            // now encrypt the entered password
+            password = encrypt(password);
+
+            // check if user already exists
+            if (hashtable.findUser(username) != nullptr) {
+                cout << "Username already exists! Please choose another one or login!";
+            } else {
+                // now add user
+                User newUser = {username, password};
+                hashtable.addUser(newUser);
+                cout << "User created successfully!\n";
+
+                // now save updated user to users.txt
+                hashtable.saveUsersToFile();
+            }
         }
     } while (choice != "exit");
 
