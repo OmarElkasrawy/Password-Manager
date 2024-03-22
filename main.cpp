@@ -3,6 +3,8 @@
 #include <sstream>
 #include <bits/stdtr1c++.h>
 #include <ctime>
+#include <cstdlib>
+#include <cctype>
 
 using namespace std;
 
@@ -232,8 +234,39 @@ int main() {
                 // now save updated user to users.txt
                 hashtable.saveUsersToFile();
             }
+            // make it so the user chooses the length
+        } else if (choice == "generate") {
+            int passwordLength;
+
+            cout << "Enter the length of the password you want to generate: ";
+            cin >> passwordLength;
+            string generatedPassword = generatePassword(passwordLength);
+            cout << "Generated password: " << generatedPassword << endl;
+        }
+        else if (choice == "retrieve") {
+            // retrieve all encrypted users
+            Node **table = hashtable.getTable();
+            bool found = false; // flag to see if users found
+            for (int i = 0; i < hashtable_size; ++i) {
+                Node *current = table[i];
+                while (current != nullptr) {
+                    cout << "Username: " << current->user.username << endl << "Encrypted password: " << current->user.password << endl;
+                    current = current->next;
+                    found = true;
+                }
+            }
+            if (!found) {
+                cout << "Hashtable is empty!! please create a user!" << endl;
+            }
+        } else if (choice == "exit") {
+            break;
+        } else {
+            cout << "Invalid choice!";
         }
     } while (choice != "exit");
+
+    // save all users to file before exit
+    hashtable.saveUsersToFile();
 
     return 0;
 }
