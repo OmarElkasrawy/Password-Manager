@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <bits/stdtr1c++.h>
+#include <ctime>
 
 using namespace std;
 
@@ -134,6 +135,17 @@ string decrypt(string text) {
         }
     }
     return decryptedText;
+}
+
+// function generate random password
+string generatePassword(int length) {
+    string charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?";
+    string password;
+
+    srand(time(nullptr));
+    for (int i = 0; i < length; ++i)
+        password.push_back(charset[rand() % charset.size()]);
+    return password;
 }
 
 
