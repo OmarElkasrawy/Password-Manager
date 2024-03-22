@@ -72,6 +72,40 @@ public:
             cerr << "Unable to open file to read" << endl; // out unbuffered to display errors
         }
     }
+
+    void saveUsersToFile() {
+        ofstream outfile("users.txt");
+        if (outfile.is_open()) {
+            for (int i = 0; i < hashtable_size; ++i) {
+                Node *current = table[i];
+                while (current != nullptr) {
+                    outfile << current->user.username << "," << current->user.password << endl;
+                    current = current->next;
+                }
+            }
+
+            outfile.close();
+        } else {
+            cerr << "Unable to open file to write";
+        }
+    }
+
+    // function to find user by username
+    User* findUser(string username) {
+        int index = hash(username);
+        Node* current = table[index];
+        while (current != nullptr) {
+            if (current->user.username == username) {
+                return &(current->user);
+            }
+            current = current->next;
+        }
+        return nullptr; // user not found
+    }
+    // return pointer to pointer to a Node
+    Node** getTable(){
+        return table;
+    }
 };
 
 
