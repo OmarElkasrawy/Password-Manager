@@ -109,7 +109,31 @@ public:
 };
 
 
+// caeser cipher encryption
+string encrypt(string text) {
+    string encryptedText = text;
+    const int charset_size = 94;
+    for (char& c : encryptedText) {
+        if (isprint(c)) {
+            char base = ' ' + 1;
+            c = (c - base + caeserShift + charset_size % charset_size + base);
+        }
+    }
+    return encryptedText;
+}
 
+// caeser cipher decryption
+string decrypt(string text) {
+    string decryptedText = text;
+    const int charset_size = 94;
+    for (char& c : decryptedText) {
+        if (isprint(c)) {
+            char base = ' ' + 1;
+            c = (c - base - caeserShift + charset_size) % charset_size + base;
+        }
+    }
+    return decryptedText;
+}
 
 
 
