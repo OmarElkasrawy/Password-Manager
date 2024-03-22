@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <bits/stdtr1c++.h>
 
 using namespace std;
 
@@ -139,6 +140,67 @@ string decrypt(string text) {
 
 
 int main() {
+    Hashtable hashtable;
+    string choice;
+
+    do {
+        cout << "Are you a user? yes(yes)/create a user(create)/retrieve all users(retrieve)/exit(exit): ";
+        cin >> choice;
+        transform(choice.begin(), choice.end(), choice.begin(), ::tolower); // to transform all capital to small
+
+        if (choice == "yes") {
+            string username, password;
+            cout << "Enter your username: ";
+            cin >> username;
+            cout << "Enter your password: ";
+            cin >> password;
+
+            User* user = hashtable.findUser(username);
+            if (user != nullptr && decrypt(user->password) == password) {
+                cout << "You are authorized!\n";
+                string option;
+                do {
+                    cout << "what would you like to do? (retrieve password(retrieve)/modify password(modify)/exit(exit): ";
+                    cin >> option;
+                    transform(option.begin(), option.end(), option.begin(), ::tolower);
+
+                    if (option == "retrieve") {
+                        cout << "Your password is: " << decrypt(user->password) << endl;
+                    } else if (option == "modify") {
+                        string newPassword;
+                        cout << "Enter your new password: ";
+                        cin >> newPassword;
+
+                        newPassword = encrypt(newPassword);
+
+                        user->password = newPassword;
+                        cout << "Password modified!\n";
+
+                        ofstream outfile("users.txt");
+                        if (outfile.is_open()) {
+                            for (int i = 0; i < hashtable_size; ++i) {
+                                Node *current = hashtable.getTable()[i];
+                                while (current != nullptr) {
+                                    outfile << current->user.username << "," << current->user.password << endl;
+                                    current = current->next;
+                                }
+                            }
+                            outfile.close();
+                        }
+                    } else if (option == "exit") {
+                        break;
+                    } else {
+                        cout << "Invalid choice! Choose one of the provided options!";
+                    }
+
+
+                } while (option != "exit");
+            } else {
+                cout << "Unauthorized access! \n";
+            }
+        }
+    } while (choice != "exit");
+
     return 0;
 }
 // test1
