@@ -224,7 +224,7 @@ int main() {
 
             // check if user already exists
             if (hashtable.findUser(username) != nullptr) {
-                cout << "Username already exists! Please choose another one or login!";
+                cout << "Username already exists! Please choose another one or login!\n";
             } else {
                 // now add user
                 User newUser = {username, password};
