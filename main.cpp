@@ -42,7 +42,7 @@ public:
     int hash(string key) { // also can be static and const string& key
         int hashValue = 0;
         for (char c : key)
-            // horner's rule
+            // horner's rule for polynomial evaluation
             hashValue = (hashValue * 31 + c) % hashtable_size; // to ensure it remains within the range of table
         return hashValue;
     }
