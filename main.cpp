@@ -277,7 +277,17 @@ int main() {
  * to
  * be
  * tested
- * here*/
+ * here
+ *
+ * Hash Function test for key hello 42 (99247024 % hashtable_size)
+ * addUser function for user Kasrawy pass
+ * findUser function for existed user Kasrawy pass
+ * encryption function pass for password kasrawy1
+ * decryption function pass for password kasrawy1
+ * password generation length of 10 pass
+ * test capitalization for function create "cReAte" pass
+ *
+ * */
 
 /*Ref
  * https://en.cppreference.com/w/cpp/language/range-for
