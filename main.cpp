@@ -158,7 +158,7 @@ int main() {
     string choice;
 
     do {
-        cout << "Are you a user? yes(yes)/create a user(create)/retrieve all users(retrieve)/exit(exit): ";
+        cout << "Are you a user? yes(yes)/create a user(create)/generate a password(generate)/retrieve all users(retrieve)/exit(exit): ";
         cin >> choice;
         transform(choice.begin(), choice.end(), choice.begin(), ::tolower); // to transform all capital to small
 
