@@ -49,3 +49,7 @@ To install and run this project you can simply run any bash to clone the repo.
 git clone https://github.com/OmarElkasrawy/Password-Manager.git
 ```
 You can also refer back to the [Usage] (#usage)
+
+# Creator
+Omar Mostafa Ali
+202101689
