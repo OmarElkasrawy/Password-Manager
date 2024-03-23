@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <bits/stdtr1c++.h>
+#include <bits/stdc++.h>
 #include <ctime>
 #include <cstdlib>
 #include <cctype>
