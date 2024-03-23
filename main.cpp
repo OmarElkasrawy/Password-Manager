@@ -102,6 +102,7 @@ public:
             if (current->user.username == username) {
                 return &(current->user);
             }
+            // move to the next node continue search
             current = current->next;
         }
         return nullptr; // user not found
@@ -174,7 +175,7 @@ int main() {
                 cout << "You are authorized!\n";
                 string option;
                 do {
-                    cout << "what would you like to do? (retrieve password(retrieve)/modify password(modify)/exit(exit): ";
+                    cout << "what would you like to do? (retrieve password(retrieve)/modify password(modify)/logout(logout): ";
                     cin >> option;
                     transform(option.begin(), option.end(), option.begin(), ::tolower);
 
@@ -201,7 +202,7 @@ int main() {
                             }
                             outfile.close();
                         }
-                    } else if (option == "exit") {
+                    } else if (option == "logout") {
                         break;
                     } else {
                         cout << "Invalid choice! Choose one of the provided options!";
