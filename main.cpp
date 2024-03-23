@@ -1,9 +1,7 @@
 #include <iostream>
 #include <fstream>
-#include <sstream>
 #include <bits/stdc++.h>
 #include <ctime>
-#include <cstdlib>
 #include <cctype>
 
 using namespace std;
