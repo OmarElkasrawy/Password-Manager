@@ -1,6 +1,6 @@
 # Password Manager
 
-This repository contains a simple password manager program implemented in C++ CLion IDE using a hash table data structure for user management and Caeser Cipher encryption for password security. Users can create accounts, log in, modify passwords, and generate random passwords.
+This repository contains a simple password manager program for KH5062CEM Programming & Algorithms 2 module coursework #1 implemented in C++ CLion IDE using a hash table data structure for user management and Caeser Cipher encryption for password security. Users can create accounts, log in, modify passwords, and generate random passwords.
 
 ## Table of Contents
 - [Introduction] (#introduction)
